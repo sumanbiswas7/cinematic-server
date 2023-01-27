@@ -12,15 +12,15 @@ serverless deploy
 
 ## Features
 
-Retrieve movies from a database
-Create new user accounts
-Receive movie suggestions
+- Retrieve movies from a database
+- Create new user accounts
+- Receive movie suggestions
 
 ## Built With
 
-Serverless Framework
-GraphQL
-TypeScript
+- Serverless Framework
+- GraphQL
+- TypeScript
 
 ## Contributing
 
