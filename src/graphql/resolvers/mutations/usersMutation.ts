@@ -4,6 +4,10 @@ import { isInvalid } from "../../../helpers/validate"
 
 const prisma = new PrismaClient()
 
+/**
+ * Adds a user to the database
+ * @param {User} args.user user object to be added in the database 
+ */
 export async function create_user(_: any, args: { user: CreateUser }) {
     const invalid = isInvalid(args.user.email, args.user.password)
     if (invalid) return invalid

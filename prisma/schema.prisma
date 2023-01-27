@@ -42,7 +42,7 @@ model Users {
 model Notifications {
   id         Int      @id @unique @default(autoincrement())
   request    Boolean?
-  suggestion String?
+  suggestion Boolean?
   from       String
   createdAt  String?
   usersId    Int
