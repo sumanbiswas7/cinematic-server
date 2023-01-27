@@ -29,12 +29,12 @@ model Users {
   id            Int             @id @unique @default(autoincrement())
   name          String          @unique @db.VarChar(50)
   email         String          @unique @db.VarChar(50)
+  password      String
   country       String?         @db.VarChar(50)
   createdAt     String?
   friends       String[]
   movies        Movies[]
   notifications Notifications[]
-  usersId       Int
 
   @@map("users")
 }
@@ -45,8 +45,8 @@ model Notifications {
   suggestion String?
   from       String
   createdAt  String?
-  user       Users    @relation(fields: [usersId], references: [id])
   usersId    Int
+  user       Users    @relation(fields: [usersId], references: [id])
 
   @@map("notifications")
 }

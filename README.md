@@ -1,4 +1,4 @@
-# Apollo GraphQL API Template for AWS Lambda
+# Cinematic Server
 
 This template is designed to help you quickly set up and deploy a Apollo GraphQL API on AWS Lambda. It includes all the necessary dependencies and configurations to get you started.
 
