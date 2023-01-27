@@ -1,0 +1,52 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Movies {
+  id          Int     @id @unique @default(autoincrement())
+  name        String  @db.VarChar(50)
+  director    String  @db.VarChar(50)
+  release     Int
+  image       String?
+  description String?
+  type        String? @db.VarChar(50)
+  rating      Float?
+  casts       String? @db.VarChar(50)
+  createdAt   String?
+  userId      Int
+  user        Users   @relation(fields: [userId], references: [id])
+
+  @@map("movies")
+}
+
+model Users {
+  id            Int             @id @unique @default(autoincrement())
+  name          String          @unique @db.VarChar(50)
+  email         String          @unique @db.VarChar(50)
+  country       String?         @db.VarChar(50)
+  createdAt     String?
+  friends       String[]
+  movies        Movies[]
+  notifications Notifications[]
+  usersId       Int
+
+  @@map("users")
+}
+
+model Notifications {
+  id         Int      @id @unique @default(autoincrement())
+  request    Boolean?
+  suggestion String?
+  from       String
+  createdAt  String?
+  user       Users    @relation(fields: [usersId], references: [id])
+  usersId    Int
+
+  @@map("notifications")
+}

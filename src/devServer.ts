@@ -1,5 +1,16 @@
-import { app } from "./server"
+import { startStandaloneServer } from "@apollo/server/standalone"
+import { ApolloServer } from '@apollo/server';
+import { typeDefs } from "./graphql/typedefs/index";
+import { resolvers } from "./graphql/resolvers/index";
 
-const PORT = process.env.PORT || 4000
-app.listen(PORT, () => { console.log(`🚀 Running on http://localhost:${PORT}/`) })
+const app = new ApolloServer({
+    typeDefs,
+    resolvers,
+});
+
+(async function startDevServer() {
+    const { url } = await startStandaloneServer(app);
+    console.log(`🚀  Server ready at: ${url}`);
+})()
+
 

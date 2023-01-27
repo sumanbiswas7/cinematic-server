@@ -1,6 +1,6 @@
-# Node Express API Template for AWS Lambda
+# Apollo GraphQL API Template for AWS Lambda
 
-This template is designed to help you quickly set up and deploy a Node Express API on AWS Lambda. It includes all the necessary dependencies and configurations to get you started.
+This template is designed to help you quickly set up and deploy a Apollo GraphQL API on AWS Lambda. It includes all the necessary dependencies and configurations to get you started.
 
 ## Getting Started
 
@@ -13,7 +13,7 @@ This template is designed to help you quickly set up and deploy a Node Express A
 ## Dependencies
 
 - Node.js
-- Express
+- Apollo Server
 - Serverless
 - AWS Lambda
 
@@ -29,7 +29,7 @@ npm run deploy
 
 - [AWS Lambda documentation](https://aws.amazon.com/lambda/)
 - [Node.js documentation](https://nodejs.org/en/docs/)
-- [Express.js](https://expressjs.com/)
+- [Apollo Server](https://www.apollographql.com/docs/)
 - [Serverless Framework](https://www.serverless.com/)
 
 ## Contributing
