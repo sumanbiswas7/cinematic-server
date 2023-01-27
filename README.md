@@ -30,6 +30,7 @@ If you are interested in contributing to the development of Cinematic, please re
 
 Suman Biswas </br>
 
+- [Portfolio](https://sumanbiswas.vercel.app/)
 - [Linkedin](https://www.linkedin.com/in/sumanbiswas7)
 - [Github](https://github.com/sumanbiswas7)
 - [Instagram](https://www.instagram.com/sumanbiswas7)
