@@ -45,8 +45,8 @@ model Notifications {
   suggestion Boolean?
   from       String
   createdAt  String?
-  usersId    Int
-  user       Users    @relation(fields: [usersId], references: [id])
+  userId     Int
+  user       Users    @relation(fields: [userId], references: [id])
 
   @@map("notifications")
 }

@@ -24,6 +24,24 @@ export async function create_user(_: any, args: { user: CreateUser }) {
 }
 
 
+export async function send_request(_: any, args: { request: Notification }) {
+    const data = args.request
+    const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
+    const newdata = { ...data, createdAt }
+
+    try {
+        await prisma.notifications.create({ data: newdata })
+        return "request sent successfuly"
+
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+export async function send_suggestion() { }
+
+
 interface CreateUser {
     name: string
     email: string
@@ -32,3 +50,9 @@ interface CreateUser {
     createdAt: string
 }
 
+interface Notification {
+    request: boolean
+    suggestion: boolean
+    from: string
+    userId: number
+}

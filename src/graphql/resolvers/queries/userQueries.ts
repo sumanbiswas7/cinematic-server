@@ -5,7 +5,6 @@ const prisma = new PrismaClient()
 /**
  * Retrieves user from database
  * @param {Number} args.limit number of users to be retrieved 
- * @returns {User[]} 
  */
 export async function get_users(_: any, args: { limit: number }) {
     const limit = args.limit
@@ -15,7 +14,6 @@ export async function get_users(_: any, args: { limit: number }) {
 /**
  * Retrieves single user from database
  * @param {Number} args.id userId to be retrieved
- * @returns {User} user object including notifications and movies
  */
 export async function get_user(_: any, args: { id: number }) {
     const id = args.id
