@@ -26,8 +26,6 @@ export const usersSchema = `#graphql
     }
     
     input NotificationInput {
-        request:    Boolean!
-        suggestion: Boolean!
         from:       String!
         userId:     Int!
     }
@@ -35,8 +33,10 @@ export const usersSchema = `#graphql
 
     type Mutation {
         create_user(user: UserInput!): String
+        
         send_request(request: NotificationInput!): String
         send_suggestion(suggestion: NotificationInput!): String
+        clear_notifications(userId: Int!): String
     }
 
     type Query {
