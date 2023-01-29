@@ -1,6 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import moment from "moment"
 import { isInvalid } from "../../../helpers/validate"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app } from "../../../firebase/firebaseConfig";
+
 
 const prisma = new PrismaClient()
 
@@ -16,6 +19,8 @@ export async function create_user(_: any, args: { user: CreateUser }) {
     const newuser = { ...args.user, createdAt }
 
     try {
+        const auth = getAuth(app)
+        await createUserWithEmailAndPassword(auth, newuser.email, newuser.password)
         await prisma.users.create({ data: newuser })
         return "User created successfully"
     } catch (error) {
