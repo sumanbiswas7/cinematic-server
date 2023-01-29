@@ -15,7 +15,6 @@ export async function send_request(_: any, args: { request: Notification }) {
     try {
         await prisma.notifications.create({ data: newdata })
         return "request sent successfully"
-
     } catch (error) {
         console.log(error)
     }
@@ -33,7 +32,6 @@ export async function send_suggestion(_: any, args: { suggestion: Notification }
     try {
         await prisma.notifications.create({ data: newdata })
         return "request sent successfully"
-
     } catch (error) {
         console.log(error)
     }
@@ -54,7 +52,6 @@ export async function clear_notifications(_: any, args: { userId: number }) {
         console.log(error)
     }
 }
-
 
 
 

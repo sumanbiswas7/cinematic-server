@@ -25,19 +25,15 @@ export async function create_user(_: any, args: { user: CreateUser }) {
 
 /**
  * Updates one user by id from database 
- * @param {UpdateUser} args.user user object to be updated in database 
+ * @param {UpdateUser} args.user new user object to be replaced in database 
  */
 export async function update_user(_: any, args: { user: UpdateUser }) {
     const newuser = args.user
     const curuser = await prisma.users.findUnique({ where: { id: newuser.userId } })
-    const data = {
-        name: newuser.name || curuser.name,
-        password: newuser.password || curuser.password,
-        country: newuser.country || curuser.country,
-    }
+    const { userId, ...data } = Object.assign({}, curuser, newuser)
 
     try {
-        await prisma.users.update({ where: { id: newuser.userId }, data })
+        await prisma.users.update({ where: { id: userId }, data })
         return "User updated successfully"
     } catch (error) {
         console.log(error)
@@ -59,4 +55,3 @@ interface UpdateUser {
     password?: string
     country?: string
 }
-
