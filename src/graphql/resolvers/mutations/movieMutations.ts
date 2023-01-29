@@ -3,6 +3,10 @@ import moment from "moment"
 
 const prisma = new PrismaClient()
 
+/**
+ * Adds a new movie to the database
+ * @param {AddMovie} args.movie movie object to be added in database   
+ */
 export async function add_movie(_: any, args: { movie: AddMovie }) {
     const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
     const newmovie = args.movie
@@ -17,6 +21,7 @@ export async function add_movie(_: any, args: { movie: AddMovie }) {
 
 
 interface AddMovie {
+    userId: number
     name: string
     director: string
     release: number

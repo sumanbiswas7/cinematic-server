@@ -1,0 +1,145 @@
+[
+  {
+    "userId": 3,
+    "name": "Intersteller",
+    "description": null,
+    "director": "Christopher Nolan",
+    "casts": null,
+    "rating": 8.5,
+    "release": 2014,
+    "type": "Science Fiction",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/poster_interstellar.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "Fight Club",
+    "description": null,
+    "director": "David Fincher",
+    "casts": null,
+    "rating": 8,
+    "release": 1999,
+    "type": "Thriller",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/poster_fight_club.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "La La Land",
+    "description": null,
+    "director": "Damien Chazelle",
+    "casts": null,
+    "rating": 8.5,
+    "release": 2016,
+    "type": "Romance",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/poster_la_la_land.webp"
+  },
+  {
+    "userId": 3,
+    "name": "The Matrix",
+    "description": null,
+    "director": "Lana Wachowski",
+    "casts": null,
+    "rating": 8,
+    "release": 1999,
+    "type": "Science Fiction",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/poster_the_matrix.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "Django Unchained",
+    "description": null,
+    "director": "Quentien Tarantino",
+    "casts": null,
+    "rating": 8.5,
+    "release": 2012,
+    "type": "Western",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/poster_django_unchained.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "The Good The Bad and The Ugly",
+    "description": null,
+    "director": "Client Eastwood",
+    "casts": null,
+    "rating": 8,
+    "release": 1975,
+    "type": "Western",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/poster_the_good_the_bad_ugly.webp"
+  },
+  {
+    "userId": 3,
+    "name": "Forrest Gump",
+    "description": null,
+    "director": "Robert Zemeckis",
+    "casts": null,
+    "rating": 8.5,
+    "release": 1994,
+    "type": "Drama",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/poster_forrest_gump.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "Inception",
+    "description": null,
+    "director": "Christopher Nolan",
+    "casts": null,
+    "rating": 8.5,
+    "release": 2010,
+    "type": "Science Fiction",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/poster_inception.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "Mulholland Drive",
+    "description": "Rita, a dark-haired amnesiac, and Betty, a perky blonde actress, team up to find clues related to Rita's accident and ascertain her true identity.",
+    "director": "David Lynch",
+    "casts": "Naomi Watts, Laurra Harrings",
+    "rating": 8,
+    "release": 2001,
+    "type": "Thriller",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/ed7d10be1071dcd976f8f170648efe3f.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "Green Book",
+    "description": "Amidst rampant racism in the 1960s southern America, an African American pianist hires an Italian American bouncer to drive him through his venues. They come closer in the course of their journey.",
+    "director": "Peter Farrelly",
+    "casts": " Viggo Mortensen,  Mahershala Ali, Nick Vallelonga",
+    "rating": 8.5,
+    "release": 2018,
+    "type": "Drama",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/83ab4b0d0da38ee54fe01bd125800092.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "Buffalo '66",
+    "description": "Billy kidnaps a young dancer, Layla, and asks her to pretend to be his wife so that he can please his parents. While Layla is initially hesitant, she falls in love with him.",
+    "director": "Vincent Gallo",
+    "casts": "Vincent Gallo, Christina Ricci ",
+    "rating": 7.5,
+    "release": 1998,
+    "type": "Drama",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/1333d47e3ae881efc6a8b4185403f08c.jpg"
+  },
+  {
+    "userId": 3,
+    "name": "American Psyco",
+    "description": "Patrick Bateman, a wealthy investment banker, hides his psychopathic ego from his friends. Later, his illogical fantasies escalate and he submits to an uncontrollable bloodlust.",
+    "director": "Mary Harron",
+    "casts": " Christian Bale ",
+    "rating": 8.5,
+    "release": 2000,
+    "type": "Thriller",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/images.jpeg"
+  },
+  {
+    "userId": 3,
+    "name": "1917",
+    "description": "Two soldiers, assigned the task of delivering a critical message to another battalion, risk their lives for the job in order to prevent them from stepping right into a deadly ambush.",
+    "director": "Sam Mendes",
+    "casts": " George MacKay, Dean-Charles ",
+    "rating": 8,
+    "release": 2019,
+    "type": "Action",
+    "image": "https://movizine-imageupload.s3.ap-south-1.amazonaws.com/e080f41168a8ef24ba80c213eed49026.jpg"
+  }
+]

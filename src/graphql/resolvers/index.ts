@@ -6,7 +6,7 @@ import * as userMutations from "./mutations/userMutation";
 import * as notificationMutations from "./mutations/notificationMutations";
 
 export const Query = { ...movieQueries, ...userQueries }
-export const Mutation = { ...userMutations, ...notificationMutations }
+export const Mutation = { ...userMutations, ...notificationMutations, ...movieMutations }
 
 export const resolvers = { Query, Mutation }
 

@@ -7,6 +7,7 @@ export const usersSchema = `#graphql
         password:      String!
         country:       String
         notifications: [Notification]
+        movies:        [Movie]
     }
 
     input UserInput {
@@ -36,6 +37,19 @@ export const usersSchema = `#graphql
         userId:     Int!
     }
 
+    type Movie {
+        id:          Int!
+        name:        String!
+        director:    String!
+        release:     Int
+        image:       String
+        description: String
+        type:        String
+        rating:      Float
+        casts:       String
+        createdAt:   String
+        user:        User
+    }
 
     type Mutation {
         create_user(user: UserInput!): String
