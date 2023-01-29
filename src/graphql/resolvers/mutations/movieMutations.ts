@@ -10,7 +10,7 @@ const prisma = new PrismaClient()
 export async function add_movie(_: any, args: { movie: AddMovie }) {
     const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
     const newmovie = args.movie
-    
+
     try {
         await prisma.movies.create({ data: { ...newmovie, createdAt } })
         return "Movie added successfully"
@@ -19,7 +19,22 @@ export async function add_movie(_: any, args: { movie: AddMovie }) {
     }
 }
 
+/**
+ * Updates a specific movie from database
+ * @param {UpdateMovie} args.movie new movie object to be added  
+ */
+export async function update_movie(_: any, args: { movie: UpdateMovie }) {
+    const newmovie = args.movie
 
+    try {
+        const curmovie = await prisma.movies.findUnique({ where: { id: newmovie.movieId } })
+        const { movieId, ...data } = Object.assign({}, curmovie, newmovie)
+        await prisma.movies.update({ where: { id: movieId }, data })
+        return "Movie updated successfully"
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 interface AddMovie {
@@ -32,4 +47,16 @@ interface AddMovie {
     type: string
     rating: number
     casts: string
+}
+
+interface UpdateMovie {
+    movieId: number
+    name?: string
+    director?: string
+    release?: number
+    image?: string
+    description?: string
+    type?: string
+    rating?: number
+    casts?: string
 }

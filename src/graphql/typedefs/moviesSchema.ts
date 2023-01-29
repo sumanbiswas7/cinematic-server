@@ -25,6 +25,18 @@ export const moviesSchema = `#graphql
         casts:       String
     }
 
+    input UpdateMovie {
+        movieId:      Int!
+        name:        String
+        director:    String
+        release:     Int
+        image:       String
+        description: String
+        type:        String
+        rating:      Float
+        casts:       String
+    }
+
     type User {
         id:            Int!
         name:          String!
@@ -41,6 +53,7 @@ export const moviesSchema = `#graphql
 
     type Mutation {
         add_movie(movie: AddMovie!): String
+        update_movie(movie: UpdateMovie!): String
     }
 
 `.slice(8)
