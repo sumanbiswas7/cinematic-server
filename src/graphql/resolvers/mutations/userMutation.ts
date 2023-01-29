@@ -38,7 +38,7 @@ export async function update_user(_: any, args: { user: UpdateUser }) {
 
     try {
         await prisma.users.update({ where: { id: newuser.userId }, data })
-        return "User updated successfuly"
+        return "User updated successfully"
     } catch (error) {
         console.log(error)
     }
