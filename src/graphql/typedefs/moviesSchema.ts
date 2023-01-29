@@ -35,7 +35,8 @@ export const moviesSchema = `#graphql
     }
 
     type Query {
-        get_movies(limit: Int): [Movie]
+        get_movies(limit: Int!): [Movie]
+        get_movie(movieId: Int!): Movie
     }
 
     type Mutation {
