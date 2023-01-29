@@ -18,6 +18,7 @@ functions:
 
     environment:
       DATABASE_URL: ${env:DATABASE_URL}
+      AUTH_API_KEY: ${env:AUTH_API_KEY}
 
 plugins:
   - serverless-plugin-typescript

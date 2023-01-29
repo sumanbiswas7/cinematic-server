@@ -20,7 +20,6 @@ export const usersSchema = `#graphql
     input UserUpdateInput{
         userId:   Int!
         name:     String
-        password: String
         country:  String
     }
 

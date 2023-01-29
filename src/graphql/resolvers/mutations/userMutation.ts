@@ -57,6 +57,5 @@ interface CreateUser {
 interface UpdateUser {
     userId: number
     name?: string
-    password?: string
     country?: string
 }
