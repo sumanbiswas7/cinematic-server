@@ -16,6 +16,12 @@ export const usersSchema = `#graphql
         country:  String
     }
 
+    input UserUpdateInput{
+        userId:   Int!
+        name:     String
+        password: String
+        country:  String
+    }
 
     type Notification {
         id:         Int!
@@ -33,7 +39,8 @@ export const usersSchema = `#graphql
 
     type Mutation {
         create_user(user: UserInput!): String
-        
+        update_user(user: UserUpdateInput!): String
+
         send_request(request: NotificationInput!): String
         send_suggestion(suggestion: NotificationInput!): String
         clear_notifications(userId: Int!): String
