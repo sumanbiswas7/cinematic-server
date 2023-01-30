@@ -20,3 +20,11 @@ export async function get_user(_: any, args: { id: number }) {
     return await prisma.users.findUnique({ where: { id }, include: { notifications: true, movies: true } })
 }
 
+/**
+ * Retrieves single user from database
+ * @param {String} args.email userEmail to be retrieved
+ */
+export async function get_authuser(_: any, args: { email: string }) {
+    const email = args.email
+    return await prisma.users.findUnique({ where: { email }, include: { notifications: true, movies: true } })
+}

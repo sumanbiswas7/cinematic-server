@@ -19,6 +19,8 @@ export async function create_user(_: any, args: { user: CreateUser }) {
     const newuser = { ...args.user, createdAt }
 
     try {
+        const emailExists = await prisma.users.findUnique({ where: { email: newuser.email } })
+        if (emailExists) return "User with same email exists already"
         const auth = getAuth(app)
         await createUserWithEmailAndPassword(auth, newuser.email, newuser.password)
         await prisma.users.create({ data: newuser })

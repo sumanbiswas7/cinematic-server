@@ -62,6 +62,7 @@ export const usersSchema = `#graphql
     type Query {
         get_users(limit: Int!): [User]
         get_user(id: Int!): User
+        get_authuser(email: String!): User
     }
 
 `.slice(8);

@@ -7,7 +7,7 @@ const emailReg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((
  */
 const isInvalid = (email: string, password: string) => {
     if (!email?.match(emailReg)) return "Provide a valid email"
-    if (password.length < 4) return "Password must be atleast 4 chars long"
+    if (password.length < 6) return "Password must be atleast 6 chars long"
     return false
 }
 
