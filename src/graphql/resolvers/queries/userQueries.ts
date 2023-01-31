@@ -17,7 +17,7 @@ export async function get_users(_: any, args: { limit: number }) {
  */
 export async function get_user(_: any, args: { id: number }) {
     const id = args.id
-    return await prisma.users.findUnique({ where: { id }, include: { notifications: true, movies: true } })
+    return await prisma.users.findUnique({ where: { id }, include: { movies: true } })
 }
 
 /**

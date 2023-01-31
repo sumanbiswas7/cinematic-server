@@ -21,6 +21,25 @@ export async function send_request(_: any, args: { request: Notification }) {
 }
 
 /**
+ * Accepts friend request from a user
+ * @param args.request request object  
+ */
+export async function accept_request(_: any, args: { request: AcceptReqProps }) {
+    const userId = args.request?.userId
+    const from = args.request?.from
+
+    try {
+        const user = await prisma.users.findUnique({ where: { id: userId } })
+        const friends = { friends: [...user.friends, from] }
+        const newuser = Object.assign({}, user, friends)
+        await prisma.users.update({ where: { id: userId }, data: newuser })
+        return `Friend request from ${from} accepted successfully`
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+/**
  * Sends movie suggestion to a user
  * @param args.request request object  
  */
@@ -60,4 +79,9 @@ interface Notification {
     suggestion: boolean
     from: string
     userId: number
+}
+
+interface AcceptReqProps {
+    userId: number
+    from: string
 }

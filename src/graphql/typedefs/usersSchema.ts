@@ -8,6 +8,7 @@ export const usersSchema = `#graphql
         country:       String
         notifications: [Notification]
         movies:        [Movie]
+        friends:       [String]
     }
 
     input UserInput {
@@ -36,6 +37,11 @@ export const usersSchema = `#graphql
         userId:     Int!
     }
 
+    input AcceptRequest {
+        userId: Int!
+        from: String
+    }
+
     type Movie {
         id:          Int!
         name:        String!
@@ -50,12 +56,15 @@ export const usersSchema = `#graphql
         user:        User
     }
 
+
     type Mutation {
         create_user(user: UserInput!): String
         update_user(user: UserUpdateInput!): String
 
         send_request(request: NotificationInput!): String
+        accept_request(request: AcceptRequest!): String
         send_suggestion(suggestion: NotificationInput!): String
+
         clear_notifications(userId: Int!): String
     }
 
