@@ -66,11 +66,13 @@ export const usersSchema = `#graphql
         send_suggestion(suggestion: NotificationInput!): String
 
         clear_notifications(userId: Int!): String
+        delete_notification(notId: Int!): String
     }
 
     type Query {
         get_users(limit: Int!): [User]
         get_user(id: Int!): User
+        search_user(text: String!): [User]
         get_authuser(email: String!): User
     }
 

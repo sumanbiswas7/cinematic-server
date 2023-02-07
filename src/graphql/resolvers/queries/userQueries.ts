@@ -28,3 +28,12 @@ export async function get_authuser(_: any, args: { email: string }) {
     const email = args.email
     return await prisma.users.findUnique({ where: { email }, include: { notifications: true, movies: true } })
 }
+
+/**
+ * Retrieves array of users from database
+ * @param {Number} args.text search text
+ */
+export async function search_user(_: any, args: { text: string }) {
+    const text = args.text
+    return await prisma.users.findMany({ where: { name: { contains: text } } })
+}

@@ -25,15 +25,26 @@ export async function send_request(_: any, args: { request: Notification }) {
  * @param args.request request object  
  */
 export async function accept_request(_: any, args: { request: AcceptReqProps }) {
-    const userId = args.request?.userId
     const from = args.request?.from
+    const userId = args.request?.userId // Getting the To's Id
+    const fromId = parseInt(from.split("#")[1]) // Getting the sender's Id 
 
     try {
         const user = await prisma.users.findUnique({ where: { id: userId } })
+        if (user.friends.includes(from)) return `${from} friend exists in user ${userId}`
         const friends = { friends: [...user.friends, from] }
         const newuser = Object.assign({}, user, friends)
+
+        const from2 = `${user.name}#${userId}`
+        const user2 = await prisma.users.findUnique({ where: { id: fromId } })
+        if (user2.friends.includes(from2)) return `${from2} friend exists in user ${fromId}`
+        const friends2 = { friends: [...user2.friends, from2] }
+        const newuser2 = Object.assign({}, user2, friends2)
+
         await prisma.users.update({ where: { id: userId }, data: newuser })
-        return `Friend request from ${from} accepted successfully`
+        await prisma.users.update({ where: { id: fromId }, data: newuser2 })
+
+        return `Users ${userId} and ${fromId} are now friends`
     } catch (error) {
         console.log(error)
     }
@@ -72,6 +83,20 @@ export async function clear_notifications(_: any, args: { userId: number }) {
     }
 }
 
+/**
+ * Deletes a single notification from notification table
+ * @param args.notId notification id 
+ */
+export async function delete_notification(_: any, args: { notId: number }) {
+    const notId = args.notId
+
+    try {
+        await prisma.notifications.delete({ where: { id: notId } })
+        return "Notification deleted successfully"
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 interface Notification {
