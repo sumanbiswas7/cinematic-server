@@ -62,8 +62,10 @@ export async function send_suggestion(_: any, args: { suggestion: Notification }
     const newdata = { ...data, createdAt, suggestion: true, request: false }
 
     try {
+        const res = await prisma.notifications.findMany({ where: { userId: data.userId, from: data.from } })
+        if (res.length) return "Movie Already Suggested"
         await prisma.notifications.create({ data: newdata })
-        return "request sent successfully"
+        return "suggestion sent successfully"
     } catch (error) {
         console.log(error)
     }
