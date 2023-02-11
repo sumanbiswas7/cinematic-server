@@ -13,6 +13,8 @@ export async function send_request(_: any, args: { request: Notification }) {
     const newdata = { ...data, createdAt, suggestion: false, request: true }
 
     try {
+        const req = await prisma.notifications.findMany({ where: { request: true, from: data.from } })
+        if (req.length) return "Request already exists"
         await prisma.notifications.create({ data: newdata })
         return "request sent successfully"
     } catch (error) {
