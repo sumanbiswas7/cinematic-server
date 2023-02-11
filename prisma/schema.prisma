@@ -32,6 +32,8 @@ model Users {
   password      String
   country       String?         @db.VarChar(50)
   createdAt     String?
+  sentReq       String[]
+  sentSug       String[]
   friends       String[]
   movies        Movies[]
   notifications Notifications[]
