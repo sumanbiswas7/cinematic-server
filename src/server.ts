@@ -7,6 +7,7 @@ import { typeDefs } from './graphql/typedefs/index';
 const app = new ApolloServer({
   typeDefs,
   resolvers,
+
 });
 
 export const handler = startServerAndCreateLambdaHandler(app);

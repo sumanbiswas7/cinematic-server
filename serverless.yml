@@ -8,13 +8,19 @@ provider:
   stage: dev
   region: ap-south-1
   timeout: 10
+  httpApi:
+    cors: true
 
 functions:
   graphql:
     handler: src/server.handler
     events:
-      - http: ANY /{proxy+}
-      - http: ANY /
+      - httpApi:
+          path: /
+          method: POST
+      - httpApi:
+          path: /
+          method: GET
 
     environment:
       DATABASE_URL: ${env:DATABASE_URL}
