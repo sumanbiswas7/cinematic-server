@@ -1,10 +1,10 @@
-import { generateUploadUrl } from "../../../aws/S3";
+import { getSignedURL } from "../../../aws/generateSignedUrl";
 
 /**
  * Returns a URL where a photo can be uploaded
  * @returns string URL
  */
 export async function upload() {
-    return await generateUploadUrl()
+    return await getSignedURL()
 }
 
