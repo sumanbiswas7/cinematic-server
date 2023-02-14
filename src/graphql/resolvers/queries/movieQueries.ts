@@ -8,7 +8,7 @@ const prisma = new PrismaClient()
  */
 export async function get_movies(_: any, args: { limit: number }) {
     const limit = args.limit
-    return await prisma.movies.findMany({ take: limit, include: { user: true } })
+    return await prisma.movies.findMany({ take: limit, include: { user: true }, orderBy: { createdAt: "desc" } })
 }
 
 /**
@@ -19,4 +19,3 @@ export async function get_movie(_: any, args: { movieId: number }) {
     const movieId = args.movieId
     return await prisma.movies.findUnique({ where: { id: movieId }, include: { user: true } })
 }
-
