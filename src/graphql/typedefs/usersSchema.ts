@@ -9,6 +9,8 @@ export const usersSchema = `#graphql
         notifications: [Notification]
         movies:        [Movie]
         friends:       [String]
+        sentReq:       [String]
+        sentSug:       [String]
     }
 
     input UserInput {

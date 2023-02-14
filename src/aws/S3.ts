@@ -3,7 +3,7 @@ import { randomBytes } from "crypto"
 import { promisify } from "util"
 
 const region = "ap-south-1";
-const bucketName = "movizine-imageupload";
+const bucketName = process.env.AWS_BUCKET_NAME;
 const accessKeyId = process.env.AWS_ACCESSKEY_ID;
 const secretAccessKey = process.env.AWS_SECRET_ACCESSKEY;
 
