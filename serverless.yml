@@ -25,6 +25,7 @@ functions:
     environment:
       DATABASE_URL: ${env:DATABASE_URL}
       AUTH_API_KEY: ${env:AUTH_API_KEY}
+      API_KEY: ${env:API_KEY}
       AWS_BUCKET_NAME: ${env:AWS_BUCKET_NAME}
       AWS_ACCESSKEY_ID: ${env:AWS_ACCESSKEY_ID}
       AWS_SECRET_ACCESSKEY: ${env:AWS_SECRET_ACCESSKEY}
