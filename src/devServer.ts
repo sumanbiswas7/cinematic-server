@@ -8,9 +8,12 @@ const app = new ApolloServer({
     resolvers,
 });
 
+
 (async function startDevServer() {
-    const { url } = await startStandaloneServer(app);
+    const { url } = await startStandaloneServer(app, {
+        context: async ({ req }) => {
+            return req
+        }
+    });
     console.log(`🚀  Server ready at: ${url}`);
 })()
-
-
