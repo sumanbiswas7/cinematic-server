@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import moment from "moment"
+import { authorize } from "../../../helpers/authorization";
 
 const prisma = new PrismaClient()
 
@@ -7,7 +8,8 @@ const prisma = new PrismaClient()
  * Adds a new movie to the database
  * @param {AddMovie} args.movie movie object to be added in database   
  */
-export async function add_movie(_: any, args: { movie: AddMovie }) {
+export async function add_movie(_: any, args: { movie: AddMovie }, ctx: any) {
+    authorize(ctx)
     const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
     const newmovie = args.movie
 
@@ -23,7 +25,8 @@ export async function add_movie(_: any, args: { movie: AddMovie }) {
  * Updates a specific movie from database
  * @param {UpdateMovie} args.movie new movie object to be added  
  */
-export async function update_movie(_: any, args: { movie: UpdateMovie }) {
+export async function update_movie(_: any, args: { movie: UpdateMovie }, ctx: any) {
+    authorize(ctx)
     const newmovie = args.movie
 
     try {

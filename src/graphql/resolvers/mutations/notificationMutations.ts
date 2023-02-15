@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import moment from "moment"
+import { authorize } from "../../../helpers/authorization";
 
 const prisma = new PrismaClient()
 
@@ -7,7 +8,8 @@ const prisma = new PrismaClient()
  * Sends friend request to a user
  * @param args.request request object  
  */
-export async function send_request(_: any, args: { request: Notification }) {
+export async function send_request(_: any, args: { request: Notification }, ctx: any) {
+    authorize(ctx)
     const data = args.request
     const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
     const newdata = { ...data, createdAt, suggestion: false, request: true }
@@ -26,7 +28,8 @@ export async function send_request(_: any, args: { request: Notification }) {
  * Accepts friend request from a user
  * @param args.request request object  
  */
-export async function accept_request(_: any, args: { request: AcceptReqProps }) {
+export async function accept_request(_: any, args: { request: AcceptReqProps }, ctx: any) {
+    authorize(ctx)
     const from = args.request?.from
     const userId = args.request?.userId // Getting the To's Id
     const fromId = parseInt(from.split("#")[1]) // Getting the sender's Id 
@@ -56,7 +59,8 @@ export async function accept_request(_: any, args: { request: AcceptReqProps }) 
  * Sends movie suggestion to a user
  * @param args.request request object  
  */
-export async function send_suggestion(_: any, args: { suggestion: Notification }) {
+export async function send_suggestion(_: any, args: { suggestion: Notification }, ctx: any) {
+    authorize(ctx)
     const data = args.suggestion
     const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
     const newdata = { ...data, createdAt, suggestion: true, request: false }
@@ -76,7 +80,8 @@ export async function send_suggestion(_: any, args: { suggestion: Notification }
  * Deletes all notification of an user
  * @param args.userId user's id 
  */
-export async function clear_notifications(_: any, args: { userId: number }) {
+export async function clear_notifications(_: any, args: { userId: number }, ctx: any) {
+    authorize(ctx)
     const userId = args.userId
 
     try {
@@ -91,7 +96,8 @@ export async function clear_notifications(_: any, args: { userId: number }) {
  * Deletes a single notification from notification table
  * @param args.notId notification id 
  */
-export async function delete_notification(_: any, args: { notId: number }) {
+export async function delete_notification(_: any, args: { notId: number }, ctx: any) {
+    authorize(ctx)
     const notId = args.notId
 
     try {

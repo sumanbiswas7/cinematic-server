@@ -3,6 +3,7 @@ import moment from "moment"
 import { isInvalid } from "../../../helpers/validate"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../../firebase/firebaseConfig";
+import { authorize } from "../../../helpers/authorization";
 
 
 const prisma = new PrismaClient()
@@ -11,7 +12,8 @@ const prisma = new PrismaClient()
  * Adds a user to the database
  * @param {CreateUser} args.user user object to be added in the database 
  */
-export async function create_user(_: any, args: { user: CreateUser }) {
+export async function create_user(_: any, args: { user: CreateUser }, ctx: any) {
+    authorize(ctx)
     const invalid = isInvalid(args.user.email, args.user.password)
     if (invalid) return invalid
 
@@ -34,7 +36,8 @@ export async function create_user(_: any, args: { user: CreateUser }) {
  * Updates one user by id from database 
  * @param {UpdateUser} args.user new user object to be replaced in database 
  */
-export async function update_user(_: any, args: { user: UpdateUser }) {
+export async function update_user(_: any, args: { user: UpdateUser }, ctx: any) {
+    authorize(ctx)
     const newuser = args.user
     const curuser = await prisma.users.findUnique({ where: { id: newuser.userId } })
     const { userId, ...data } = Object.assign({}, curuser, newuser)
